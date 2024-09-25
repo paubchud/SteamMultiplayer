@@ -1,7 +1,7 @@
 /// @description Setup Player
 
 localSteamID = steam_get_user_steam_id()
-isLocal = (localSteamID == steamID)
+isHost = (localSteamID == steam_lobby_get_owner_id())
 image_index = lobbyMemberID
 
 moveSpeed = 5
