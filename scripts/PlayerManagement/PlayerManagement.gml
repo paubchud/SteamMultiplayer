@@ -40,8 +40,8 @@ function receive_player_input(_b, _steam_id=-1){
 
 ///@self obj_Client
 function find_player_by_steam_id(_steam_id){
-	for (var _i = 0; _i < instance_number(obj_Player); _i++){
-		var _player = instance_find(obj_Player, _i)
+	for (var _i = 0; _i < array_length(obj_Client.playerList); _i++){
+		var _player = obj_Client.playerList[_i].character
 		if _player.steamID == _steam_id return _player;
 	}
 	return noone;

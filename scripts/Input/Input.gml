@@ -21,7 +21,6 @@ function get_controls(_is_host, _is_local)
 	
 	}
 	if (!_is_host && _is_local) {
-	show_debug_message("Sending Input...")
 	//Directions inputs
 	var _rightKey = keyboard_check(vk_right) ||keyboard_check(ord("D")) || gamepad_button_check( 0, gp_padr );
 	var _leftKey  = keyboard_check(vk_left) || keyboard_check(ord("A")) || gamepad_button_check( 0, gp_padl );
