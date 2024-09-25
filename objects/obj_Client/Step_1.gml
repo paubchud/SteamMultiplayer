@@ -33,7 +33,6 @@ while(steam_net_packet_receive()){
 			})
 				
 			break
-			
 		case NETWORK_PACKETS.SPAWN_SELF:
 			for (var _i = 0; _i < array_length(playerList); _i++){
 				if playerList[_i].steamID == steamID then lobbyMemberID = playerList[_i].lobbyMemberID	
@@ -48,6 +47,10 @@ while(steam_net_packet_receive()){
 						})
 			playerList[0].character = _inst
 			character = _inst
+			break
+
+		case NETWORK_PACKETS.SERVER_PLAYER_INPUT:
+			receive_player_input(inbuf)
 			break
 		default:
 			show_debug_message("Unknown packet received: "+string(_type))
