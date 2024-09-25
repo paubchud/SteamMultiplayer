@@ -1,6 +1,6 @@
 function get_controls(_is_host, _is_local)
 {
-	if _is_host {
+	if (_is_host && _is_local) {
 	//Directions inputs
 	rightKey = keyboard_check(vk_right) ||keyboard_check(ord("D")) || gamepad_button_check( 0, gp_padr );
 	leftKey  = keyboard_check(vk_left) || keyboard_check(ord("A")) || gamepad_button_check( 0, gp_padl );
@@ -15,15 +15,13 @@ function get_controls(_is_host, _is_local)
 	actionKey = keyboard_check(vk_space) || mouse_check_button(mb_left) || gamepad_button_check( 0, gp_face2 );
 	
 	
-	if (allDir + runKey + actionKey == 0) then return
-	
 	//Send Host Input to Clients
-	var _input = {steamID: obj_Server.steamID, xInput:xInput, yInput:yInput, runKey:runKey, actionKey:actionKey}
+	var _input = {steamID: lobbyHost, xInput:xInput, yInput:yInput, runKey:runKey, actionKey:actionKey}
 	send_player_input_to_clients(_input)
 	
 	}
-	else if (_is_local) {
-		
+	if (!_is_host && _is_local) {
+	show_debug_message("Sending Input...")
 	//Directions inputs
 	var _rightKey = keyboard_check(vk_right) ||keyboard_check(ord("D")) || gamepad_button_check( 0, gp_padr );
 	var _leftKey  = keyboard_check(vk_left) || keyboard_check(ord("A")) || gamepad_button_check( 0, gp_padl );
