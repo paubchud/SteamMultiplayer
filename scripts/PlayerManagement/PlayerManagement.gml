@@ -23,7 +23,7 @@ function send_player_input(_input){
 
 ///@description Player Input Packet Reading for server/client
 function receive_player_input(_b, _steam_id=-1){
-	if _steam_id == -1 then _steam_id = steam_net_packet_read(_b, buffer_u64)
+	if _steam_id == -1 then _steam_id = buffer_read(_b, buffer_u64)
 	var _xInput = buffer_read(_b, buffer_s8)
 	var _yInput = buffer_read(_b, buffer_s8)
 	var _runKey = buffer_read(_b, buffer_u8)

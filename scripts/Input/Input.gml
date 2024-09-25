@@ -18,7 +18,7 @@ function get_controls(_is_host)
 	if (allDir + runKey + actionKey == 0) then return
 	var _xInput = (rightKey - leftKey)
 	var _yInput = (downKey - upKey)
-	var _input = {steamID: localSteamID, xInput:_xInput, yInput:_yInput, runKey:runKey, actionKey:actionKey}
+	var _input = {steamID: obj_Server.steamID, xInput:_xInput, yInput:_yInput, runKey:runKey, actionKey:actionKey}
 	send_player_input_to_clients(_input)
 	}
 	else {
