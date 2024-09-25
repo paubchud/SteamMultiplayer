@@ -14,6 +14,8 @@ function get_controls(_is_host)
 	//Action inputs
 	runKey = keyboard_check(vk_shift) || gamepad_button_check( 0, gp_face3 );
 	actionKey = keyboard_check(vk_space) || mouse_check_button(mb_left) || gamepad_button_check( 0, gp_face2 );
+	
+	if (allDir + runKey + actionKey == 0) then return
 	var _xInput = (rightKey - leftKey)
 	var _yInput = (downKey - upKey)
 	var _input = {steamID: localSteamID, xInput:_xInput, yInput:_yInput, runKey:runKey, actionKey:actionKey}

@@ -5,7 +5,6 @@ playerList = []
 steamID = steam_get_user_steam_id()
 steamName = steam_get_persona_name()
 lobbyMemberID = 0
-
 character = undefined
 
 playerList[0] = {

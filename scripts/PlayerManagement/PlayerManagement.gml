@@ -17,7 +17,7 @@ function send_player_input(_input){
 	buffer_write(_b, buffer_s8, _yInput);//1
 	buffer_write(_b, buffer_u8, _runKey);//1
 	buffer_write(_b, buffer_u8, _actionKey);//1
-	steam_net_packet_send(lobbyHost, _b)
+	steam_net_packet_send(obj_Client.lobbyHost, _b)
 	buffer_delete(_b)
 }
 

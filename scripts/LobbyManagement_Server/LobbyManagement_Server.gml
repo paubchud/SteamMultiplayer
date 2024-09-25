@@ -70,9 +70,9 @@ function send_player_input_to_clients(_player_input){
 	buffer_write(_b, buffer_s8, _player_input.yInput);//1
 	buffer_write(_b, buffer_u8, _player_input.runKey);//1
 	buffer_write(_b, buffer_u8, _player_input.actionKey);//1
-	for (var _i = 0; _i < array_length(playerList); _i++){
-		if (playerList[_i].steamID != localSteamID) {
-			steam_net_packet_send(playerList[_i].steamID, _b)
+	for (var _i = 0; _i < array_length(obj_Server.playerList); _i++){
+		if (obj_Server.playerList[_i].steamID != localSteamID) {
+			steam_net_packet_send(obj_Server.playerList[_i].steamID, _b)
 		}
 	}
 	buffer_delete(_b);
