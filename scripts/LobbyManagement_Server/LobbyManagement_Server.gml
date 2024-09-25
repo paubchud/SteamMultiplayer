@@ -63,7 +63,7 @@ function server_player_spawn_at_pos(_steam_id, _pos) {
 
 ///@self obj_Server
 function send_player_input_to_clients(_player_input){
-	var _b = buffer_create(12, buffer_fixed, 1); //1+8+1+1+1+1
+	var _b = buffer_create(13, buffer_fixed, 1); //1+8+1+1+1+1
 	buffer_write(_b, buffer_u8, NETWORK_PACKETS.SERVER_PLAYER_INPUT);//1
 	buffer_write(_b, buffer_u64, _player_input.steamID);//8
 	buffer_write(_b, buffer_s8, _player_input.xInput);//1

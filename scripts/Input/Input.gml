@@ -1,4 +1,4 @@
-function get_controls(_is_host)
+function get_controls(_is_host, _is_local)
 {
 	if _is_host {
 	//Directions inputs
@@ -21,7 +21,7 @@ function get_controls(_is_host)
 	var _input = {steamID: obj_Server.steamID, xInput:_xInput, yInput:_yInput, runKey:runKey, actionKey:actionKey}
 	send_player_input_to_clients(_input)
 	}
-	else {
+	else if (!_is_local) {
 	//Directions inputs
 	var _rightKey = keyboard_check(vk_right) ||keyboard_check(ord("D")) || gamepad_button_check( 0, gp_padr );
 	_rightKey = clamp( rightKey, 0, 1 );

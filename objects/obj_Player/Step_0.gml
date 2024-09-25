@@ -1,5 +1,5 @@
 /// @description Movement & Actions based off of Input
-get_controls(isHost)
+get_controls(isHost,isLocal)
 
 paddle_movement()
 
