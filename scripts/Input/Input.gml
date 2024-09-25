@@ -21,7 +21,7 @@ function get_controls(_is_host, _is_local)
 	var _input = {steamID: obj_Server.steamID, xInput:_xInput, yInput:_yInput, runKey:runKey, actionKey:actionKey}
 	send_player_input_to_clients(_input)
 	}
-	else if (!_is_local) {
+	else if (_is_local) {
 	//Directions inputs
 	var _rightKey = keyboard_check(vk_right) ||keyboard_check(ord("D")) || gamepad_button_check( 0, gp_padr );
 	_rightKey = clamp( rightKey, 0, 1 );
@@ -36,7 +36,6 @@ function get_controls(_is_host, _is_local)
 	var _actionKey = keyboard_check(vk_space) || mouse_check_button(mb_left) || gamepad_button_check( 0, gp_face2 );
 	var _input = {rightKey:_rightKey, leftKey:_leftKey, downKey:_downKey, upKey:_upKey, runKey:_runKey, actionKey:_actionKey}
 	send_player_input(_input);
-		
 	}
 
 }
