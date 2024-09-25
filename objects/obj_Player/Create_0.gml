@@ -2,7 +2,7 @@
 
 localSteamID = steam_get_user_steam_id()
 lobbyHost = steam_lobby_get_owner_id()
-isHost = (localSteamID == lobbyHost)
+isHost = steam_lobby_is_owner()
 isLocal = (localSteamID == steamID)
 image_index = lobbyMemberID
 

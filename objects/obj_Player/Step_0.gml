@@ -1,4 +1,5 @@
 /// @description Movement & Actions based off of Input
+if lobbyHost == 0 then lobbyHost = steam_lobby_get_owner_id()
 get_controls(isHost,isLocal)
 
 paddle_movement()
