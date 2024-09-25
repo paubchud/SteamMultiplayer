@@ -28,7 +28,7 @@ function receive_player_input(_b, _steam_id=-1){
 	var _yInput = buffer_read(_b, buffer_s8)
 	var _runKey = buffer_read(_b, buffer_u8)
 	var _actionKey = buffer_read(_b, buffer_u8)
-	var _player = find_player_by_steamID(_steam_id)
+	var _player = find_player_by_steam_id(_steam_id)
 	if _player == noone return;
 	_player.xInput = _xInput
 	_player.yInput = _yInput
