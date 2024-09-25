@@ -48,6 +48,9 @@ function init_controls(){
 	downKey		= 0
 	upKey		= 0
 	
+	xInput = 0
+	yInput = 0
+	
 	//Action inputs
 	runKey		= 0
 	actionKey	= 0
