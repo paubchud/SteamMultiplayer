@@ -39,11 +39,11 @@ function send_other_player_spawn(_steam_id, _pos) {
 
 ///@self obj_Server
 function shrink_player_list(){
-	var _shrunkList = playerList
+	//var _shrunkList = playerList
 	//for (var _i = 0; _i < array_length(_shrunkList); _i++) {
 	//	//_shrunkList[_i].character = undefined	
 	//}
-	return json_stringify(_shrunkList)
+	return json_stringify(playerList)
 }
 
 ///@self obj_Server
