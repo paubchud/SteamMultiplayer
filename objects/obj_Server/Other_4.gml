@@ -13,3 +13,5 @@ for (var _player = 0; _player < array_length(playerList); _player++) {
 	playerList[_player].startPos = _pos
 	if (playerList[_player].steamID == steamID) then character = _inst
 }
+
+alarm[0] = 5

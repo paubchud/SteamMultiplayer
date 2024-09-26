@@ -53,6 +53,10 @@ while(steam_net_packet_receive()){
 			receive_player_input(inbuf)
 			break
 			
+		case NETWORK_PACKETS.PLAYER_POSITION:
+			update_player_position(inbuf)
+			break
+			
 		default:
 			show_debug_message("Unknown packet received: "+string(_type))
 			break
