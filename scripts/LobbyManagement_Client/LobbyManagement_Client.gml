@@ -16,7 +16,7 @@ function sync_players(_new_list) {
 				if playerList[_k].steamID == _newSteamID {
 					playerList[_k].startPos = _new_list[_i].startPos
 					playerList[_k].lobbyMemberID = _new_list[_i].lobbyMemberID
-					playerList[_k].steamName = steam_get_user_persona_name(playerList[_k].steamID)
+					playerList[_k].steamName = steam_get_persona_name(playerList[_k].steamID)
 					if  playerList[_k].character == undefined && playerList[_k].steamID != _newSteamID{
 						var _inst = client_player_spawn_at_pos(playerList[_k])
 						playerList[_k].character = _inst
@@ -30,7 +30,7 @@ function sync_players(_new_list) {
 ///@self obj_Client
 function client_player_spawn_at_pos(_player_info) {
 	var _layer	= layer_get_id("Instances")
-	var _name	= steam_get_user_persona_name(_player_info.steamID)
+	var _name	= steam_get_persona_name(_player_info.steamID)
 	var _steamID= _player_info.steamID
 	var _num	= _player_info.lobbyMemberID
 	var _loc	= _player_info.startPos
