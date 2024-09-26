@@ -6,7 +6,7 @@ function grab_spawn_point(_player) {
 
 
 ///@self obj_Client
-function send_player_input(_input){
+function send_player_input(_input,_lobby_host){
 	var _xInput = (_input.rightKey - _input.leftKey)
 	var _yInput = (_input.downKey - _input.upKey)
 	var _runKey = _input.runKey
@@ -17,7 +17,7 @@ function send_player_input(_input){
 	buffer_write(_b, buffer_s8, _yInput);//1
 	buffer_write(_b, buffer_u8, _runKey);//1
 	buffer_write(_b, buffer_u8, _actionKey);//1
-	steam_net_packet_send(obj_Client.lobbyHost, _b)
+	steam_net_packet_send(_lobby_host, _b)
 	buffer_delete(_b)
 }
 

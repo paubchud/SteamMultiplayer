@@ -33,7 +33,7 @@ function get_controls(_is_host, _is_local)
 	
 	//Send input to Server
 	var _input = {rightKey:_rightKey, leftKey:_leftKey, downKey:_downKey, upKey:_upKey, runKey:_runKey, actionKey:_actionKey}
-	send_player_input(_input);
+	send_player_input(_input,lobbyHost);
 	}
 
 }
