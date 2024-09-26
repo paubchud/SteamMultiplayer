@@ -77,9 +77,12 @@ function update_player_position(_b) {
 	var _x = buffer_read(_b, buffer_u16)
 	var _y = buffer_read(_b, buffer_u16)
 	for (var _i = 0; _i < array_length(playerList); _i++){
-		if playerList[_i].character = undefined then continue
-		playerList[_i].character.x = _x	
-		playerList[_i].character.y = _y
+		if (_steam_id == playerList[_i].steamID) {
+			show_debug_message(playerList[_i])
+			if playerList[_i].character = undefined then continue
+			playerList[_i].character.x = _x	
+			playerList[_i].character.y = _y
+		}
 	}
 	
 }
