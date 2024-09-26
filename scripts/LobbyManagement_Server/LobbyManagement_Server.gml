@@ -40,9 +40,9 @@ function send_other_player_spawn(_steam_id, _pos) {
 ///@self obj_Server
 function shrink_player_list(){
 	var _shrunkList = playerList
-	for (var _i = 0; _i < array_length(_shrunkList); _i++) {
-		_shrunkList[_i].character = undefined	
-	}
+	//for (var _i = 0; _i < array_length(_shrunkList); _i++) {
+	//	//_shrunkList[_i].character = undefined	
+	//}
 	return json_stringify(_shrunkList)
 }
 
@@ -51,18 +51,19 @@ function server_player_spawn_at_pos(_steam_id, _pos) {
 	var _layer = layer_get_id("Instances");
 	for (var _i = 0; _i < array_length(playerList); _i++){
 		if playerList[_i].steamID == _steam_id {
-		var _inst = instance_create_layer(_pos.x, _pos.y,_layer,obj_Player, {
-							steamName	: playerList[_i].steamName,
-							steamID: _steam_id,
-							lobbyMemberID: _i
-					})
-		playerList[_i].character = _inst
+			var _inst = instance_create_layer(_pos.x, _pos.y,_layer,obj_Player, {
+								steamName	: playerList[_i].steamName,
+								steamID: _steam_id,
+								lobbyMemberID: _i
+						})
+			playerList[_i].character = _inst
 		}
 	}
 }
 
 ///@self obj_Server
 function send_player_input_to_clients(_player_input){
+	if _player_input == undefined then return
 	var _b = buffer_create(13, buffer_fixed, 1); //1+8+1+1+1+1
 	buffer_write(_b, buffer_u8, NETWORK_PACKETS.SERVER_PLAYER_INPUT);//1
 	buffer_write(_b, buffer_u64, _player_input.steamID);//8

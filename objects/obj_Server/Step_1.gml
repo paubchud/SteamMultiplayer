@@ -12,6 +12,7 @@ while(steam_net_packet_receive()){
 		case NETWORK_PACKETS.CLIENT_PLAYER_INPUT:
 			var _playerInput = receive_player_input(inbuf, _sender);
 			send_player_input_to_clients(_playerInput);
+			break
 			
 		default:
 			show_debug_message("Unknown packet received: "+string(_type))
