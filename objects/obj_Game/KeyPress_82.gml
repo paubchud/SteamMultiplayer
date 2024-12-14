@@ -1,2 +1,3 @@
 ///// @description Restart Game
-game_restart();
+// moved to obj state
+//game_restart();
