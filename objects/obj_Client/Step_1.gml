@@ -21,7 +21,7 @@ while(steam_net_packet_recive())
 			var _y = buffer_read(inbuf, buffer_u16);
 			var _steamID = _player_info.steamID;
 			var _num = _player_info.lobbyMemberID;
-			var _inst = instance_create_layer(_x, _y, _layer, obj_player, {
+			var _inst = instance_create_layer(_x, _y, _layer, obj_Player, {
 				steamName : _name,
 				steamID : _steamID,
 				lobbyMemberID: _num
@@ -46,13 +46,21 @@ while(steam_net_packet_recive())
 			var _layer = layer_get_id("Instances");
 			var _x = buffer_read(inbuf, buffer_u16);
 			var _y = buffer_read(inbuf, buffer_u16);
-			var _inst = instance_create_layer(_x, _y, _layer, obj_player, {
+			var _inst = instance_create_layer(_x, _y, _layer, obj_Player, {
 				steamName : steamName,
 				steamID : steamID,
 				lobbyMemberID: lobbyMemberID
 			});
 			playerList[0].character =_inst;
 			character = _inst;
+			break
+			
+		case NETWORK_PACKETS.SERVER_PLAYER_INPUT:
+			receive_player_input(inbuf);
+			break
+			
+		case NETWORK_PACKETS.PLAYER_POSITION:
+			update_player_position(inbuf);
 			break
 			
 		default:

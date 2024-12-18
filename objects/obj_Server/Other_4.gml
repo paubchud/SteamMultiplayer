@@ -19,3 +19,5 @@ for (var _player = 0; _player < array_length(playerList); _player++)
 	}
 	
 }
+
+alarm[0] = 5;

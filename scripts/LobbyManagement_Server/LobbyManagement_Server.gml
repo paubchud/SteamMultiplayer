@@ -54,3 +54,72 @@ function server_player_spawn_pos(_steam_id, _pos) {
 		}
 	}
 }
+
+//@self obj_server
+function send_player_input_to_client(_player_input)
+{
+	if _player_input == undefined return;
+	
+	var _b = buffer_create(13, buffer_fixed, 1); //1+8+1+1+1+1
+	buffer_write(_b, buffer_u8, NETWORK_PACKETS.CLIENT_PLAYER_INPUT); //1
+	buffer_write(_b, buffer_u64, _player_input.steamID); //8
+	buffer_write(_b, buffer_s8, _player_input.xInput); //1
+	buffer_write(_b, buffer_s8, _player_input.yInput); //1
+	buffer_write(_b, buffer_u8, _player_input.runKey); //1
+	buffer_write(_b, buffer_u8, _player_input.actionKey); //1
+	
+	for (var _i = 0; _i < array_length(obj_Server.playerList); _i++)
+	{
+		if (obj_Server.playerList[_i].steamID != obj_Server.steamID)
+		{
+			steam_net_packet_send(obj_Server.playerList[_i].steamID, _b);	
+		}
+	}
+	buffer_delete(_b);
+}
+
+///@description Constantly update other clients on every player's position
+//@self obj_Server
+function send_player_position()
+{
+	for (var _i = 0; _i < array_length(playerList); _i++)
+	{
+		var _player = playerList[_i];
+		if _player.character == undefined then continue
+		if _player.steamID == undefined then continue
+		
+		var _b = buffer_create(13, buffer_fixed, 1); //1+8+2+2
+		buffer_write(_b, buffer_u8, NETWORK_PACKETS.PLAYER_POSITION); //1
+		buffer_write(_b, buffer_u64, _player.steamID); //8
+		buffer_write(_b, buffer_u16, _player.character.x); //2
+		buffer_write(_b, buffer_u16, _player.character.y); //2
+		for (var _k = 0; _k < array_length(playerList); _k++)
+		{
+			if (playerList[_k].steamID != obj_Server.steamID)
+			{
+				steam_net_packet_send(playerList[_k].steamID, _b)	
+			}
+		}
+		buffer_delete(_b);
+	}
+}
+
+//@self obj_Client
+function update_player_position(_b)
+{
+	var _steam_ID = buffer_read(_b, buffer_u64);
+	var _x = buffer_read(_b, buffer_u8);
+	var _y = buffer_read(_b, buffer_u8);
+	
+	for (var _i = 0; _i < array_length(playerList); _i++)
+		{
+			if (_steam_ID == playerList[_i].steamID)
+			{
+				if playerList[_i].character = undefined then continue
+				
+				playerList[_i].character.x = _x;
+				playerList[_i].character.y = _y;
+			}
+		}
+	
+}
