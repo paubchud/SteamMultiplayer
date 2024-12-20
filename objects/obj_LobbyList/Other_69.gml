@@ -22,4 +22,5 @@ switch(async_load[? "event_type"])
 				array_push(lobbyList, _ins);
 			}
 		}
+		break
 }

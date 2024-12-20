@@ -7,7 +7,8 @@ event_inherited();
 selectAction = function ()
 {
 	// Disable other buttons
-	for (var _i = 0; _i < 5; _i++){
+	for (var _i = 0; _i < 5; _i++)
+	{
 		var _inst = instance_find(obj_Button,_i);
 		if _inst != noone then _inst.disabled = true;
 	}
@@ -18,4 +19,4 @@ selectAction = function ()
 	//var lobby_item = instance_create_depth(lobby_list.x, lobby_list.bbox_top+40,-20,obj_LobbyItem);
 	//lobby_list.lobby_list[0] = lobby_item;
 	//lobby_list.alarm[0] = 1;
-}
+};

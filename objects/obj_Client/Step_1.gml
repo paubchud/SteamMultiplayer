@@ -1,7 +1,7 @@
 /// @description Listening for Activity as Client
 
 // Reciving Packets
-while(steam_net_packet_recive())
+while(steam_net_packet_receive())
 {
 	var _sender = steam_net_packet_get_sender_id();
 	steam_net_packet_get_data(inbuf);

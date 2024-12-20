@@ -17,7 +17,7 @@ steam_lobby_list_request();
 resetLobbyList = function () {
 	for (var _i = 0; _i < array_length(lobbyList); _i++)
 	{
-		show_debug_message("Deleting: " +string(lobbyList[_i]));
+		show_debug_message("Deleting: " + string(lobbyList[_i]));
 		instance_destroy(lobbyList[_i]);
 	}
 	lobbyList = [];
