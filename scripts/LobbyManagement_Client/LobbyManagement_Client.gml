@@ -11,7 +11,7 @@ function sync_players(_new_list){
 		var _newSteamID = _new_list[_i].steamID;
 		if (!array_contains(_steamIDs, _newSteamID))
 		{
-			var _init = client_player_spawn_pos(_new_list[_i]);	
+			var _init = client_player_spawn_at_pos(_new_list[_i]);
 			_new_list[i].character = _inst;
 			array_push(playerList, _new_list[_i])
 		}
