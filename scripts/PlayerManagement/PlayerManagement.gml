@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function grab_spawn_point(_player){
@@ -63,4 +64,10 @@ function find_player_by_steam_id(_steam_id)
 		if _player.steamID == _steam_id return _player;
 	}
 	return noone;
+=======
+function grab_spawn_point(_player) {
+	var _spawnPoint  = instance_find(obj_SpawnPoint, _player)
+	if _spawnPoint == noone return {x:0,y:0};
+	return {x:_spawnPoint.x, y:_spawnPoint.y}
+>>>>>>> episode4
 }

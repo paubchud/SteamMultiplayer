@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "$GMScript":"v1",
+=======
+  "$GMScript":"",
+>>>>>>> episode4
   "%Name":"PlayerManagement",
   "isCompatibility":false,
   "isDnD":false,

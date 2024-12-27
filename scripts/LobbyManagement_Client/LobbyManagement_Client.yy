@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "$GMScript":"v1",
+=======
+  "$GMScript":"",
+>>>>>>> episode4
   "%Name":"LobbyManagement_Client",
   "isCompatibility":false,
   "isDnD":false,

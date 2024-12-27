@@ -4,9 +4,17 @@
 // Inherit the parent event
 event_inherited();
 
+<<<<<<< HEAD
 selectAction = function()
 {
 	global.server = instance_create_depth(0,0,0,obj_Server);
 	steam_lobby_create(steam_lobby_type_public, 4);
 }
 
+=======
+
+selectAction = function() {
+	global.server = instance_create_depth(0,0,0,obj_Server)
+	steam_lobby_create(steam_lobby_type_public, 4);
+}
+>>>>>>> episode4
