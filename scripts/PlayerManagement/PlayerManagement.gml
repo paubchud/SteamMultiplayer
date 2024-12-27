@@ -10,10 +10,10 @@ function grab_spawn_point(_player){
 }
 
 //@self obj_CLient
-function send_player_input(_input, _loby_host)
+function send_player_input(_input, _lobby_host)
 {
-	var _xInput = (_input.rightKet - _input.leftKey);
-	var _yInput = (_input.downKet - _input.upKey);
+	var _xInput = (_input.rightKey - _input.leftKey);
+	var _yInput = (_input.downKey - _input.upKey);
 	var _runKey = _input.runKey;
 	var _actionKey = _input.actionKey;
 	var _b = buffer_create(5, buffer_fixed, 1) // 1+1+1+1+1
@@ -56,7 +56,7 @@ function receive_player_input(_b, _steam_id = -1)
 //@description Finding Player Object on client/server
 function find_player_by_steam_id(_steam_id)
 {
-	for (var _i; _i < array_length(playerList); _i++)
+	for (var _i = 0; _i < array_length(playerList); _i++)
 	{
 		var _player = playerList[_i].character;
 		if _player == undefined continue;

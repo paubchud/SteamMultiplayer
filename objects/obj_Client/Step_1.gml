@@ -11,7 +11,7 @@ while(steam_net_packet_receive())
 	switch _type {
 		case NETWORK_PACKETS.SYNC_PLAYERS:
 			var _playerList = buffer_read(inbuf, buffer_string);
-			_playerList = jason_parse(_playerList);
+			_playerList = json_parse(_playerList);
 			sync_players(_playerList);
 			break
 			
@@ -51,7 +51,7 @@ while(steam_net_packet_receive())
 				steamID : steamID,
 				lobbyMemberID: lobbyMemberID
 			});
-			playerList[0].character =_inst;
+			playerList[0].character = _inst;
 			character = _inst;
 			break
 			

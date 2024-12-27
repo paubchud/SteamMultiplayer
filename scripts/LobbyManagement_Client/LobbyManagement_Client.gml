@@ -12,7 +12,7 @@ function sync_players(_new_list){
 		if (!array_contains(_steamIDs, _newSteamID))
 		{
 			var _init = client_player_spawn_at_pos(_new_list[_i]);
-			_new_list[i].character = _inst;
+			_new_list[_i].character = _init;
 			array_push(playerList, _new_list[_i])
 		}
 		else
@@ -42,7 +42,7 @@ function client_player_spawn_at_pos(_player_info){
 	var _steamID = _player_info.steamID;
 	var _num = _player_info.lobbyMemberID;
 	var _loc = _player_info.startPos;
-	var _inst = instance_create_layer(_loc.x, _loc.y, _layer, obj_player, {
+	var _inst = instance_create_layer(_loc.x, _loc.y, _layer, obj_Player, {
 		steamName : _name,
 		steamID : _steamID,
 		lobbyMemberID: _num

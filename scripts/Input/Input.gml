@@ -37,8 +37,8 @@ function get_controls(_is_host, _is_local)
 		var _upKey  = keyboard_check(vk_up) || keyboard_check(ord("W")) || gamepad_button_check( 0, gp_padu );
 	
 		//Action inputs
-		var_runKey = keyboard_check(vk_shift) || gamepad_button_check( 0, gp_face3 );
-		var_actionKey = keyboard_check(vk_space) || mouse_check_button(mb_left) || gamepad_button_check( 0, gp_face2 );
+		var _runKey = keyboard_check(vk_shift) || gamepad_button_check( 0, gp_face3 );
+		var _actionKey = keyboard_check(vk_space) || mouse_check_button(mb_left) || gamepad_button_check( 0, gp_face2 );
 	
 		//Send Host Input to Server
 		var _input = {rightKey: _rightKey,
